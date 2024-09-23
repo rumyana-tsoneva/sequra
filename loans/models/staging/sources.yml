@@ -1,0 +1,10 @@
+version: 2
+
+sources:
+  - name: raw_data
+    database: db
+    schema: dbt
+    tables:
+      - name: dim_shoppers
+      - name: orders
+      - name: default_order_type

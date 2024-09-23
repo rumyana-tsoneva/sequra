@@ -1,0 +1,61 @@
+version: 2
+
+models:
+  - name: int_orders_in_arrears
+    description: "Data on orders with overdue payments."
+    columns:
+      - name: order_id
+        description: ""
+      - name: shopper_id
+        description: ""
+        data_tests:
+          - not_null
+      - name: age
+        description: "Customer age (integer)."
+      - name: order_date
+        description: ""
+      - name: order_month
+        description: ""
+      - name: product_id
+        description: "Unique product identifier."
+      - name: merchant_id
+        description: "Unique merchant identifier."
+      - name: default_type
+        description: "Default type ID."
+      - name: delayed_period
+        description: "Within which bucket is the order (17, 30, 60, 90 days)."
+      - name: loan_in_arrears
+        description: "Amount of order/loan."
+      - name: principal_in_arrears
+        description: "Delayed payment for principal."
+      - name: fees_in_arrears
+        description: "Delayed payments for fees."
+      - name: debt
+        description: "Sum of delayed payment for principal and for fees."
+
+
+  - name: int_orders_not_in_arrears
+    description: "Data on orders that are up to date with payments."
+    columns:
+      - name: order_id
+        description: ""
+      - name: shopper_id
+        description: ""
+        data_tests:
+          - not_null
+      - name: age
+        description: "Customer age (integer)."
+      - name: order_date
+        description: ""
+      - name: order_month
+        description: ""
+      - name: product_id
+        description: "Unique product identifier."
+      - name: merchant_id
+        description: "Unique merchant identifier."
+      - name: delayed_period
+        description: "Should be always equal to 0. For delayed payments we have the following buckets: (17, 30, 60, 90 days)."
+        data_tests:
+          - delayed_period_not_negative
+      - name: loan_not_in_arrears
+        description: "Amount of order/loan."

@@ -1,0 +1,22 @@
+version: 2
+
+models:
+  - name: loan_default
+    description: "Table with monthly default ratio by shopper age, product and merchant."
+    columns:
+      - name: shopper_age
+        description: ""
+      - name: month_year_order
+        description: ""
+        data_tests:
+          - not_null
+      - name: product
+        description: ""
+      - name: merchant
+        description: ""
+      - name: default_type
+        description: ""
+      - name: delayed_period
+        description: ""
+      - name: default_ratio
+        description: "Total loans in arrears / Total loans - calculation is based on current order value "
